@@ -211,8 +211,8 @@
       </div>
 
       <div class="hint">Some love stories don’t allow “no” ✨</div>
+      <audio id="song" src="/song.mp3" autoplay muted></audio>
     </div>
-    <audio src="/song.mp3" autoplay></audio>
     <!-- Sounds -->
     <audio
       id="hoverSound"
@@ -224,6 +224,8 @@
     ></audio>
 
     <script>
+      const song = document.getElementById("song");
+      song.muted = false;
       const noBtn = document.getElementById("no");
       const yesBtn = document.getElementById("yes");
       const card = document.querySelector(".card");

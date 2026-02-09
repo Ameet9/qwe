@@ -33,6 +33,19 @@
         overflow: hidden;
       }
 
+      .afterYes {
+        display: none;
+        background-color: linear-gradient(
+          -45deg,
+          #ff9a9e,
+          #fad0c4,
+          #fbc2eb,
+          #a18cd1
+        );
+        font-family: "Poppins", sans-serif;
+        align-items: center;
+        padding: 20px;
+      }
       @keyframes bgMove {
         0% {
           background-position: 0% 50%;
@@ -210,7 +223,9 @@
         <button id="yes">Yes 💖</button>
         <button id="no">No 🙈</button>
       </div>
-
+      <div class="afterYes">
+        <h2>I Love You Manish ❤️</h2>
+      </div>
       <div class="hint">Some love stories don’t allow “no” ✨</div>
       <span>Play this 👇</span>
       <audio
@@ -237,6 +252,8 @@
       const noBtn = document.getElementById("no");
       const yesBtn = document.getElementById("yes");
       const card = document.querySelector(".card");
+      const buttons = document.querySelector(".buttons");
+      const afteryes = document.querySelector(".afterYes");
       const hoverSound = document.getElementById("hoverSound");
       const yesSound = document.getElementById("yesSound");
 
@@ -264,7 +281,8 @@
         });
 
         setTimeout(() => {
-          alert("YAY 💕 I can’t wait for Valentine’s Day with you!");
+          buttons.style.display = "none";
+          afteryes.style.display = "block";
         }, 500);
       });
 

@@ -32,7 +32,12 @@
         font-family: "Poppins", sans-serif;
         overflow: hidden;
       }
-
+      .danceReel {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 450px;
+      }
       .afterYes {
         display: none;
         background-color: linear-gradient(
@@ -235,16 +240,15 @@
         muted
         controls
       ></audio>
+      <video
+        class="danceReel"
+        src="/Dance.mp4"
+        autoplay
+        loop
+        width="400px"
+        height="400px"
+      ></video>
     </div>
-    <!-- Sounds -->
-    <audio
-      id="hoverSound"
-      src="https://assets.mixkit.co/sfx/preview/mixkit-cartoon-voice-laugh-343.mp3"
-    ></audio>
-    <audio
-      id="yesSound"
-      src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"
-    ></audio>
 
     <script>
       const song = document.getElementById("song");
@@ -254,13 +258,9 @@
       const card = document.querySelector(".card");
       const buttons = document.querySelector(".buttons");
       const afteryes = document.querySelector(".afterYes");
-      const hoverSound = document.getElementById("hoverSound");
-      const yesSound = document.getElementById("yesSound");
+      const dacereel = document.querySelector(".danceReel");
 
       noBtn.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play();
-
         const cardRect = card.getBoundingClientRect();
         const btnRect = noBtn.getBoundingClientRect();
 
@@ -272,8 +272,6 @@
       });
 
       yesBtn.addEventListener("click", () => {
-        yesSound.play();
-
         confetti({
           particleCount: 260,
           spread: 120,
@@ -283,6 +281,8 @@
         setTimeout(() => {
           buttons.style.display = "none";
           afteryes.style.display = "block";
+          dacereel.style.display = "block";
+          dacereel.play();
         }, 500);
       });
 

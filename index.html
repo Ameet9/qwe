@@ -34,9 +34,7 @@
       }
       .danceReel {
         display: none;
-        position: absolute;
-        top: 0px;
-        left: 450px;
+        margin-left: -15px;
       }
       .afterYes {
         display: none;
@@ -49,7 +47,7 @@
         );
         font-family: "Poppins", sans-serif;
         align-items: center;
-        padding: 20px;
+        padding: 10px;
       }
       @keyframes bgMove {
         0% {
@@ -65,7 +63,7 @@
 
       /* Card */
       .card {
-        width: min(92%, 420px);
+        width: min(92%, 430px);
         padding: 40px 30px 45px;
         background: rgba(255, 255, 255, 0.75);
         backdrop-filter: blur(18px);
@@ -222,7 +220,15 @@
   <body>
     <div class="card">
       <div class="emoji">🐱❤️</div>
-      <h2>Manish,<br />will you be my Valentine?</h2>
+      <h2 class="ques">Manish,<br />will you be my Valentine?</h2>
+      <video
+        class="danceReel"
+        src="https://ameet9.github.io/qwe/Dance.mp4"
+        autoplay
+        loop
+        muted
+        width="400px"
+      ></video>
 
       <div class="buttons">
         <button id="yes">Yes 💖</button>
@@ -240,15 +246,6 @@
         muted
         controls
       ></audio>
-      <video
-        class="danceReel"
-        src="https://ameet9.github.io/qwe/Dance.mp4"
-        autoplay
-        loop
-        muted
-        width="400px"
-        height="400px"
-      ></video>
     </div>
 
     <script>
@@ -260,6 +257,7 @@
       const buttons = document.querySelector(".buttons");
       const afteryes = document.querySelector(".afterYes");
       const dacereel = document.querySelector(".danceReel");
+      const ques = document.querySelector(".ques");
 
       noBtn.addEventListener("mouseenter", () => {
         const cardRect = card.getBoundingClientRect();
@@ -283,6 +281,7 @@
           buttons.style.display = "none";
           afteryes.style.display = "block";
           dacereel.style.display = "block";
+          ques.style.display = "none";
           dacereel.play();
         }, 500);
       });
